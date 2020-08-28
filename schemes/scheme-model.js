@@ -6,24 +6,21 @@ function find() {
 }
 //Find By Id .first
 function findById(id) {
-    return db("schemes")
-    .where("id", id)
-    .first()
+    return db("schemes").where("id", id).first()
+}
+
+//Add by id
+function add(scheme) {
+    return db("schemes").insert(scheme)
+    .then(ids => {
+        return findById(ids[0])
+    })
 }
 //remove by id .del
 function remove(id) {
     return db("schemes")
     .where("id", id)
     .del()
-}
-
-//Add by id
-function add(scheme) {
-    return db("schemes")
-    .insert(scheme)
-    .then(ids => {
-        return findById(ids[0])
-    })
 }
 
 //update with .update by ID
@@ -44,8 +41,8 @@ function findSteps(id) {
 module.exports = {
     find,
     findById,
-    findSteps,
     add,
-    update,
     remove,
+    update,
+    findSteps,
 }
