@@ -19,3 +19,4 @@ SELECT o."Id", "Customer"."CompanyName", "Employee"."LastName"
 FROM "Order" as o
 JOIN "Customer" ON o."CustomerId" = "Customer"."Id"
 JOIN "Employee" ON o."EmployeeId" = "Employee"."Id"
+--returning only 14,000 ??
